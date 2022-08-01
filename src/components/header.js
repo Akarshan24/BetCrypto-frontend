@@ -37,7 +37,7 @@ const Header = () => {
             {
               auth.isLoggedIn
                 ? <>
-                  <NavDropdown title="Account" id="collasible-nav-dropdown">
+                  <NavDropdown title={user.alias} id="collasible-nav-dropdown">
                     <NavDropdown.Item onClick={goToProfile}>Profile</NavDropdown.Item>
                     <NavDropdown.Item onClick={LogOutHelper}>
                       Logout
