@@ -1,5 +1,7 @@
+import { DOMAIN_DEV } from "../constants";
+
 export const verifyLoginCredentialsAndGetJWT = async (alias, password) => {
-    const response = await fetch('http://localhost:5000/auth/login', {
+    const response = await fetch(DOMAIN_DEV + 'auth/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -12,7 +14,7 @@ export const verifyLoginCredentialsAndGetJWT = async (alias, password) => {
     return data;
 }
 export const checkEmailVerificationCode = async (code, alias) => {
-    const response = await fetch('http://localhost:5000/auth/verify-email', {
+    const response = await fetch(DOMAIN_DEV + 'auth/verify-email', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -25,7 +27,7 @@ export const checkEmailVerificationCode = async (code, alias) => {
     return data;
 }
 export const saveUserDetails = async (email, alias, password, passcode) => {
-    const response = await fetch('http://localhost:5000/auth/register', {
+    const response = await fetch(DOMAIN_DEV + 'auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -39,7 +41,7 @@ export const saveUserDetails = async (email, alias, password, passcode) => {
 }
 export const sendVerificationCode = async (alias) => {
 
-    var response = await fetch('http://localhost:5000/auth/send-verification-code', {
+    var response = await fetch(DOMAIN_DEV + 'auth/send-verification-code', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -53,7 +55,7 @@ export const sendVerificationCode = async (alias) => {
     return data;
 }
 export const updatePassword = async (alias, password) => {
-    var response = await fetch('http://localhost:5000/auth/change-password', {
+    var response = await fetch(DOMAIN_DEV + 'auth/change-password', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

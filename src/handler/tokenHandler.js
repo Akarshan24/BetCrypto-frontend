@@ -1,5 +1,7 @@
+import { DOMAIN_DEV } from "../constants";
+
 export const getWalletBalancesHandler = async (alias) => {
-    var response = await fetch('http://localhost:5000/token/get-wallet-balance', {
+    var response = await fetch(DOMAIN_DEV + 'token/get-wallet-balance', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -14,7 +16,7 @@ export const getWalletBalancesHandler = async (alias) => {
     return data;
 }
 export const createWalletsHandler = async (alias) => {
-    var response = await fetch('http://localhost:5000/token/create-wallets', {
+    var response = await fetch(DOMAIN_DEV + 'token/create-wallets', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
