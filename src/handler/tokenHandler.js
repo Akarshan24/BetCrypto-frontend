@@ -5,6 +5,7 @@ export const getWalletBalancesHandler = async (alias) => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
             'x-access-token': localStorage.getItem('jwt')
         },
         body: JSON.stringify({
@@ -19,7 +20,8 @@ export const createWalletsHandler = async (alias) => {
     var response = await fetch(DOMAIN_DEV + 'token/create-wallets', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({
             alias

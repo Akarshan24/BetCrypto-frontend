@@ -1,5 +1,5 @@
 module.exports = Object.freeze({
-    DOMAIN_DEV: 'http://localhost:4000/',
+    DOMAIN_DEV: 'http://localhost:3001/',
     OK: 200,
     BAD_REQUEST: 400,
     NOT_FOUND: 404,

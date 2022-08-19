@@ -50,7 +50,7 @@ export default function VerticalTabs() {
         {
             let ctr = 0;
             return football.map(x =>
-                <TabPanel value={value} index={ctr++}><FootballMatchCardList /></TabPanel>
+                <TabPanel value={value} index={ctr++}><FootballMatchCardList name={x.key} /></TabPanel>
             )
         }
     }
@@ -67,9 +67,10 @@ export default function VerticalTabs() {
                 variant="scrollable"
                 visibleScrollbar="true"
                 onChange={handleChange}
+                sx={{ overflowY: 'visible' }}
             >
                 {football.map(x =>
-                    <Tab label={x.key} />
+                    x.value.matchList.length > 0 ? <Tab label={x.key} /> : <></>
                 )}
             </Tabs>
             {loadTabs()}

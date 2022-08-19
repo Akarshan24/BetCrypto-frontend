@@ -4,7 +4,8 @@ export const verifyLoginCredentialsAndGetJWT = async (alias, password) => {
     const response = await fetch(DOMAIN_DEV + 'auth/login', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({
             alias, password
@@ -17,7 +18,8 @@ export const checkEmailVerificationCode = async (code, alias) => {
     const response = await fetch(DOMAIN_DEV + 'auth/verify-email', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({
             code, alias
@@ -30,7 +32,8 @@ export const saveUserDetails = async (email, alias, password, passcode) => {
     const response = await fetch(DOMAIN_DEV + 'auth/register', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({
             email, alias, password, passcode
@@ -44,7 +47,8 @@ export const sendVerificationCode = async (alias) => {
     var response = await fetch(DOMAIN_DEV + 'auth/send-verification-code', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({
             alias
@@ -59,7 +63,8 @@ export const updatePassword = async (alias, password) => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'x-access-token': localStorage.getItem('jwt')
+            'x-access-token': localStorage.getItem('jwt'),
+            'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({
             alias, password

@@ -7,6 +7,7 @@ import VerifyEmail from './components/verifyEmail';
 import Profile from './components/profile';
 import ChangePassword from './components/changePassword';
 import Wallet from './components/wallet';
+import BettingPoolList from './components/bettingPoolList';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { logInUser, logOutUser } from './features/user';
@@ -34,6 +35,7 @@ function App() {
         <Route path="/verify-email/:alias" exact element={<VerifyEmail />} />
         <Route path="/change-password/:alias" exact element={<ChangePassword />} />
         <Route path="/wallets/:currency" exact element={<Wallet />} />
+        <Route path="/bet/:matchId" exact element={<BettingPoolList />} />
       </Routes>
     </BrowserRouter>
   );
