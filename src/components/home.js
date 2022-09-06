@@ -11,10 +11,10 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMatchListForTournamentService, getTournamentsService } from '../service/footballService';
 import { OK } from '../constants';
-import { add } from '../features/football';
+import { addMatch } from '../features/footballMatch';
+import { addTournament } from '../features/footballTournament';
 const Home = () => {
   const [value, setValue] = useState('1');
-  const footballTournamentToMatch = useSelector(state => state.football);
   const dispatch = useDispatch();
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -30,9 +30,19 @@ const Home = () => {
           const res = await getMatchListForTournamentService(tournament[1].tournamentId);
           if (res.status === OK) {
             const matchList = res.response;
-            const id = tournament[1].tournamentId;
-            const name = tournament[1].tournament;
-            dispatch(add({ key: name, value: { tournamentId: id, matchList } }));
+            dispatch(addTournament({
+              key: tournament[1].tournamentId,
+              value: {
+                name: tournament[1].tournament,
+                matches: matchList.length
+              }
+            }));
+            Object.entries(matchList).map(match => {
+              dispatch(addMatch({
+                key: match[1].id,
+                value: match[1]
+              }))
+            })
           }
         });
       }

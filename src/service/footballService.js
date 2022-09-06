@@ -13,7 +13,7 @@ export const getMatchFromIdService = async (id) => {
     const response = await getMatchFromIdHandler(id);
     return response;
 }
-export const getPoolsFromMatchService = async (id, slot) => {
-    const response = await getPoolsFromMatchHandler(id, slot);
+export const getPoolsFromMatchService = async (id) => {
+    const response = await getPoolsFromMatchHandler(id);
     return response;
 }

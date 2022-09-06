@@ -4,8 +4,7 @@ export const verifyLoginCredentialsAndGetJWT = async (alias, password) => {
     const response = await fetch(DOMAIN_DEV + 'auth/login', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
             alias, password
@@ -18,8 +17,7 @@ export const checkEmailVerificationCode = async (code, alias) => {
     const response = await fetch(DOMAIN_DEV + 'auth/verify-email', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
             code, alias
@@ -47,8 +45,7 @@ export const sendVerificationCode = async (alias) => {
     var response = await fetch(DOMAIN_DEV + 'auth/send-verification-code', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
             alias
@@ -63,8 +60,7 @@ export const updatePassword = async (alias, password) => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'x-access-token': localStorage.getItem('jwt'),
-            'Access-Control-Allow-Origin': '*'
+            'x-access-token': localStorage.getItem('jwt')
         },
         body: JSON.stringify({
             alias, password
